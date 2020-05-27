@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>JVMNote | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="JVM笔记（未完） 博客的第一篇文章就写一些最基础的吧，看了一些资料文本和视频对JVM有了一些自己的理解，顺便把它写成笔记，希望能帮到需要的人，如果其中出现一些技术性的错误，感谢大家指正！   JVM 跨平台原理：Java不直接和操作系统交互，而是通过JVM的解释，JVM根据不同平台解释成相应可以处理的机器码来执行 。 JVM种类（了解）： Hot Spot(我们用的) JRockit J9VM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JVMNote">
+<meta property="og:url" content="http://yoursite.com/2020/05/27/JVMNote/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="JVM笔记（未完） 博客的第一篇文章就写一些最基础的吧，看了一些资料文本和视频对JVM有了一些自己的理解，顺便把它写成笔记，希望能帮到需要的人，如果其中出现一些技术性的错误，感谢大家指正！   JVM 跨平台原理：Java不直接和操作系统交互，而是通过JVM的解释，JVM根据不同平台解释成相应可以处理的机器码来执行 。 JVM种类（了解）： Hot Spot(我们用的) JRockit J9VM">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2020/05/27/JVMNote/JVMStructure">
+<meta property="article:published_time" content="2020-05-27T22:38:21.000Z">
+<meta property="article:modified_time" content="2020-05-27T23:03:51.479Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/05/27/JVMNote/JVMStructure">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JVMNote" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/27/JVMNote/" class="article-date">
+  <time datetime="2020-05-27T22:38:21.000Z" itemprop="datePublished">2020-05-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JVMNote
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="JVM笔记（未完）"><a href="#JVM笔记（未完）" class="headerlink" title="JVM笔记（未完）"></a>JVM笔记（未完）</h1><blockquote>
+<p>博客的第一篇文章就写一些最基础的吧，看了一些资料文本和视频对JVM有了一些自己的理解，顺便把它写成笔记，希望能帮到需要的人，如果其中出现一些技术性的错误，感谢大家指正！</p>
+</blockquote>
+<hr>
+<h3 id="JVM-跨平台原理："><a href="#JVM-跨平台原理：" class="headerlink" title="JVM 跨平台原理："></a>JVM 跨平台原理：</h3><p>Java不直接和操作系统交互，而是通过JVM的解释，JVM根据不同平台解释成相应可以处理的机器码来执行 。</p>
+<h3 id="JVM种类（了解）："><a href="#JVM种类（了解）：" class="headerlink" title="JVM种类（了解）："></a>JVM种类（了解）：</h3><ol>
+<li>Hot Spot(我们用的)</li>
+<li>JRockit</li>
+<li>J9VM</li>
+</ol>
+<h3 id="JVM简单结构图："><a href="#JVM简单结构图：" class="headerlink" title="JVM简单结构图："></a>JVM简单结构图：</h3><p><img src="/2020/05/27/JVMNote/JVMStructure" alt="JVM结构图"></p>
+<h3 id="1-类加载器："><a href="#1-类加载器：" class="headerlink" title="1.类加载器："></a>1.类加载器：</h3><ul>
+<li>类加载器将编译后生成的*.class文件加载如JVM，并生成类的唯一标识Class类（可以理解为模板），Class类记录了类的构造器、方法名等信息（我们反射去到的类信息就是来自于该类，synchronize锁static方法的时候锁的也是该类）。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JVMDemo01</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        Guitar taylor = <span class="keyword">new</span> Guitar();</span><br><span class="line"></span><br><span class="line">        ClassLoader classLoader = taylor.getClass().getClassLoader();</span><br><span class="line">        ClassLoader parent = classLoader.getParent();</span><br><span class="line">        ClassLoader grandParent = parent.getParent();</span><br><span class="line">        <span class="comment">//sun.misc.Launcher$AppClassLoader@18b4aac2</span></span><br><span class="line">        System.out.println(classLoader);</span><br><span class="line">        <span class="comment">//sun.misc.Launcher$ExtClassLoader@24d46ca6</span></span><br><span class="line">        System.out.println(parent);</span><br><span class="line">        <span class="comment">//null</span></span><br><span class="line">        System.out.println(grandParent);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="类加载器分类："><a href="#类加载器分类：" class="headerlink" title="类加载器分类："></a>类加载器分类：</h4><ol>
+<li>虚拟机自带的加载器</li>
+<li>启动类（根）加载器——jre/lib/rt.jar包，现在好像没了。。</li>
+<li>扩展类加载器——jre/lib/ext</li>
+<li>应用程序类加载器</li>
+<li>自定义类加载器——自己实现ClassLoader抽象类</li>
+</ol>
+<h4 id="双亲委派机制："><a href="#双亲委派机制：" class="headerlink" title="双亲委派机制："></a>双亲委派机制：</h4><ol>
+<li>类加载器收到加载类的请求</li>
+<li>将这个请求向上委托给父类加载器去完成，一直向上委托，直到启动类（根）加载器</li>
+<li>启动加载器检查是否能够加载当前这个类，能加载就结束并使用当前的加载器，否则抛出异常，通知子类加载器进行加载</li>
+<li>重复3</li>
+<li>没找到就ClassNotFound</li>
+</ol>
+<p>类加载器加载类的时候，加载器会一层一层往上找：如果我自己定义了一个String类，那加载器在应用程序层找到我的String类以后依然会继续往上层搜，如果搜到了，那我定义的String就会被无视。</p>
+<p>代码中可以看出最后找到根加载器的时候显示是null，即java获取不到，因为这里是用了本地方法（java底层用C++实现）</p>
+<h3 id="2-方法区"><a href="#2-方法区" class="headerlink" title="2. 方法区"></a>2. 方法区</h3><p>顺带提及：刚才提到了调用了C++写的本地方法，也就是native关键字，凡事带了native关键字的就是调用了C语言的库，会进入本地方法栈调用本地方法接口，也就是所谓的JNI来扩展java的使用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这是Thread类里面很诡异的一行代码，这个类又不是接口或者抽象方法，竟然有一个空方法在这里，实际上就是调用了C++本地方法，我们看不到内部。</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">start0</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-程序计数器（PC寄存器）"><a href="#3-程序计数器（PC寄存器）" class="headerlink" title="3. 程序计数器（PC寄存器）"></a>3. 程序计数器（PC寄存器）</h3><p>每个线程独有一个程序计数器，线程私有，就是一个指针，指向方法区的方法字节码，占用的空间很小，可以忽略不计</p>
+<h3 id="4-方法区：线程共享"><a href="#4-方法区：线程共享" class="headerlink" title="4. 方法区：线程共享"></a>4. 方法区：线程共享</h3><p>方法区存有类的构造函数、接口，即类信息，以及静态变量、常量（所谓常量池）；换成关键字，就是static、final、Class模版类</p>
+<p><strong>注意</strong>：new出来的实例以及实例属性都存在堆内存中</p>
+<h3 id="5-栈：Stack"><a href="#5-栈：Stack" class="headerlink" title="5. 栈：Stack"></a>5. 栈：Stack</h3><p>栈主管程序运行，生命周期与线程同步——线程结束，栈内存释放</p>
+<p>栈的存储内容：8大基本类型 + 对象引用地址 + 实例的方法（引用）</p>
+<h4 id="栈运行原理：元素单位——栈帧"><a href="#栈运行原理：元素单位——栈帧" class="headerlink" title="栈运行原理：元素单位——栈帧"></a>栈运行原理：元素单位——栈帧</h4><p>线程每执行一个方法，就往栈内弹入一个栈帧；</p>
+<p>换句话说，线程正在执行的方法一定在栈的顶部；</p>
+<p>如果栈满了（A和B递归调用对方），就会报StackOverflow</p>
+<h4 id="栈帧组成："><a href="#栈帧组成：" class="headerlink" title="栈帧组成："></a>栈帧组成：</h4><ol>
+<li>方法索引 </li>
+<li>输入输出参数</li>
+<li>本地变量</li>
+<li>Class File：引用 —— 指向堆内存中的实例</li>
+<li>父帧 —— 指向调用者</li>
+<li>子帧 —— 指向被调用者</li>
+</ol>
+<p>栈不存在垃圾回收（可以这么理解，如果存在垃圾要等着回收，那栈既然是FILO，方法调用完如果顶部有垃圾等待回收，程序就会一直阻塞直到触发垃圾回收，那效率不就没了嘛）</p>
+<h3 id="堆：Heap"><a href="#堆：Heap" class="headerlink" title="堆：Heap"></a>堆：Heap</h3><p>一个JVM只有一个堆内存，一个堆内存可以调节：VM option </p>
+<p>类加载器读取文件后，把类、方法、常量、变量</p>
+<h4 id="堆内存分区："><a href="#堆内存分区：" class="headerlink" title="堆内存分区："></a>堆内存分区：</h4><ol>
+<li><p>新生区 -&gt;轻GC</p>
+<ul>
+<li>新生区(Eden、伊甸区)</li>
+<li>幸存0区(Survive From)</li>
+<li>幸存1区(Survive To)</li>
+</ul>
+</li>
+<li><p>养老区（Old）-&gt;重GC/Full GC</p>
+</li>
+<li><p>元空间（以前叫永久区）</p>
+</li>
+</ol>
+<p>GC主要发生在新生区和养老区</p>
+<p>堆内存满了：OOM；90%以上都是临时对象</p>
+<h4 id="元空间（常驻内存，存放jdk自身携带的Class对象，interface元数据，即储存运行的环境、类信息）："><a href="#元空间（常驻内存，存放jdk自身携带的Class对象，interface元数据，即储存运行的环境、类信息）：" class="headerlink" title="元空间（常驻内存，存放jdk自身携带的Class对象，interface元数据，即储存运行的环境、类信息）："></a>元空间（常驻内存，存放jdk自身携带的Class对象，interface元数据，即储存运行的环境、类信息）：</h4><p>不存在垃圾回收，关闭JVM就会释放这个区域的内存</p>
+<p>jdk1.6之前：永久代，常量池在方法区</p>
+<p>jdk1.7：永久代慢慢退化，提出 “去永久代”，常量池在堆中</p>
+<p>jdk1.8之后：无永久代，常量池在元空间，元空间物理层面与堆无关，但逻辑可以理解为和堆在一起</p>
+<p>可能出现的问题：一个启动类加载了大量第三方jar包、Tomcat部署了太多应用、大量动态生成的反射类。导致OOM</p>
+<h4 id="堆内存大小"><a href="#堆内存大小" class="headerlink" title="堆内存大小"></a>堆内存大小</h4><p>默认情况下，分配的总内存是电脑内存的1/4，初始化内存是电脑的1/64（1/4 * 1/16）</p>
+<p>调节堆内存默认值：-Xms1024m -Xmx1024m -XX:+PrintGCDetails</p>
+<p>观察可以发现：PSYoungGen + ParOldGen $\approx$ 1024m（上面的配置配的）</p>
+<p>也就是说：元空间逻辑上存在，物理上不存在堆 </p>
+<h4 id="分析OOM和堆内存的工具：JProfile"><a href="#分析OOM和堆内存的工具：JProfile" class="headerlink" title="分析OOM和堆内存的工具：JProfile"></a>分析OOM和堆内存的工具：JProfile</h4><h3 id="GC常用算法："><a href="#GC常用算法：" class="headerlink" title="GC常用算法："></a>GC常用算法：</h3><ol>
+<li><p>引用计数法：记录引用的对象，将没有引用到的清除</p>
+</li>
+<li><p>复制算法：记住一句话——谁空谁是To，-XX:MaxTenuringThreshold=n设定进入老年代的时间。</p>
+<p>轻GC使Eden为空，留下的进入To（此时To即将不为空），From的也清理完以后进入现在的To，然后To和From交换名字，那To又是null了。</p>
+<ul>
+<li>优点：没有内存碎片</li>
+<li>缺点：浪费了内存空间，有一半幸存区永远是空To。</li>
+</ul>
+<p>最佳使用场景：对象存活度较低（新生区）</p>
+</li>
+<li><p>标记清除法：扫描对象，对引用的标记对象 ；再次扫描，清除为标记的对象</p>
+<ul>
+<li>优点：不需要额外空间</li>
+<li>两次扫描浪费时间，会产生内存碎片</li>
+</ul>
+</li>
+<li><p>标记压缩：</p>
+<p>标记清除执行数次的基础上进行内存压缩，多了一个移动成本</p>
+</li>
+</ol>
+<h4 id="小结："><a href="#小结：" class="headerlink" title="小结："></a>小结：</h4><ol>
+<li>内存效率（时间复杂度）：复制算法 &gt; 标记清除 &gt; 标记压缩 </li>
+<li>内存整齐度：复制算法 = 标记压缩 &gt; 标记清除</li>
+<li>内存利用率：标记压缩 = 标记清除 &gt; 复制算法</li>
+</ol>
+<p><strong>GC</strong>：分代收集算法：</p>
+<p>新生代：存活率低，使用复制算法</p>
+<p>老年代：区域大，存活率高，标记清除（内存碎片不是太多的时候） + 标记压缩</p>
+<p>哇我第一遍写的文档丢了，Typora搞人心态有一手，但这软件有些地方还是很香的～</p>
+<p>写了这么多感觉才写了JVM冰山一角，有很多地方我故意没写，因为自己了解还不够，那就留个坑以后补全吧，反正最近学习重心也不在这儿。</p>
+<p>另外非常感谢下面三个链接提供的资源，感谢感谢～</p>
+<p><a href="https://www.bilibili.com/video/BV1iJ411d7jS" target="_blank" rel="noopener">参考1</a></p>
+<p><a href="https://blog.csdn.net/know9163/article/details/80574488" target="_blank" rel="noopener">参考2</a></p>
+<p><a href="https://blog.csdn.net/qq_41701956/article/details/81664921" target="_blank" rel="noopener">参考3</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/05/27/JVMNote/" data-id="ckapyh3kp0000cds68qc4bwow" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/27/test/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">test</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/05/27/JVMNote/">JVMNote</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/27/test/">test</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/27/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
