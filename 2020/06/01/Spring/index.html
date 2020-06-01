@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | LittlePeachie</title>
+  <title>Spring | LittlePeachie</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="LittlePeachie">
-<meta property="og:url" content="http://yoursite.com/archives/2020/index.html">
+  <meta name="description" content="自己的笔记，此文章复用功能较低，不建议参考  IOC理论思想（Spring核心思想） set实现动态注入，程序员不需要管理对象的创建，降低系统耦合（IOC原型）  DI（依赖注入）只是实现IoC（控制反转——Inversion of Control）的一种方法  IoC可以使用XML配置，也可以使用注解，新版本Spring可以0配置实现IoC  Spring容器在初始化的时候先读配置文件，根据配">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring">
+<meta property="og:url" content="http://yoursite.com/2020/06/01/Spring/index.html">
 <meta property="og:site_name" content="LittlePeachie">
+<meta property="og:description" content="自己的笔记，此文章复用功能较低，不建议参考  IOC理论思想（Spring核心思想） set实现动态注入，程序员不需要管理对象的创建，降低系统耦合（IOC原型）  DI（依赖注入）只是实现IoC（控制反转——Inversion of Control）的一种方法  IoC可以使用XML配置，也可以使用注解，新版本Spring可以0配置实现IoC  Spring容器在初始化的时候先读配置文件，根据配">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-06-01T10:13:44.000Z">
+<meta property="article:modified_time" content="2020-06-01T18:26:33.915Z">
 <meta property="article:author" content="呱呱太">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="LittlePeachie" type="application/atom+xml">
@@ -148,85 +153,115 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Spring" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/01/%E4%BF%9D%E5%85%BB%E5%90%89%E4%BB%96/" class="archive-article-date">
-  	<time datetime="2020-06-01T16:54:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-01</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/01/%E4%BF%9D%E5%85%BB%E5%90%89%E4%BB%96/">保养吉他</a>
+    <h1 class="article-title" itemprop="name">
+      Spring
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">吉他</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/吉他//" class="article-tag-list-link color3">吉他</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/01/Spring/" class="archive-article-date">
+        
+        <a href="/2020/06/01/Spring/" class="archive-article-date">
   	<time datetime="2020-06-01T10:13:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-01</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/01/Spring/">Spring</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>自己的笔记，此文章复用功能较低，不建议参考</p>
+</blockquote>
+<h2 id="IOC理论思想（Spring核心思想）"><a href="#IOC理论思想（Spring核心思想）" class="headerlink" title="IOC理论思想（Spring核心思想）"></a>IOC理论思想（Spring核心思想）</h2><ol>
+<li><p>set实现动态注入，程序员不需要管理对象的创建，降低系统耦合（IOC原型）</p>
+</li>
+<li><p>DI（依赖注入）只是实现IoC（控制反转——Inversion of Control）的一种方法</p>
+</li>
+<li><p>IoC可以使用XML配置，也可以使用注解，新版本Spring可以0配置实现IoC</p>
+</li>
+<li><p>Spring容器在初始化的时候先读配置文件，根据配置文件或元数据创建与组织对象存入容器中，程序使用时再从IoC容器中取出需要的对象。</p>
+</li>
+<li><p>采用XML方式配置Bean的时候，Bean的定义信息是和实现分离的，而采用注解可以把二者合为一体，Bean的定义信息直接以注解的形式定义在实现类中，达到0配置的目的。</p>
+</li>
+<li><p>控制反转是一种通过描述（XML、Annotation）并通过第三方去生产或获取特定对象的方式，在Spring中实现控制反转的是IoC Containner，实现方法是Dependency Injection。</p>
+</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:p</span>=<span class="string">"http://www.springframework.org/schema/p"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">        bean = 对象 = new Hello();</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">        id = 变量名</span></span><br><span class="line"><span class="comment">        class = new 的对象</span></span><br><span class="line"><span class="comment">        property 给对象属性设置值</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--使用Spring创建对象--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"hello"</span> <span class="attr">class</span>=<span class="string">"com.jwang261.pojo.Hello"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--这里的value如果换成ref就是去引用Spring容器中创建好的对象--&gt;</span></span><br><span class="line">      	<span class="comment">&lt;!--name为属性名--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"Spring"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"next"</span> <span class="attr">ref</span>=<span class="string">"next"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"next"</span> <span class="attr">class</span>=<span class="string">"com.jwang261.pojo.Hello"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"Next"</span>/&gt;</span></span><br><span class="line">        </span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//获取Spring的上下文对象</span></span><br><span class="line">        ApplicationContext applicationContext = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"beans.xml"</span>);</span><br><span class="line">        <span class="comment">//我们的对象都在Spring中管理了，我们要使用就直接取出来</span></span><br><span class="line">        Hello hello = (Hello)applicationContext.getBean(<span class="string">"hello"</span>);</span><br><span class="line">        System.out.println(hello);</span><br><span class="line">        Hello hello2 = (Hello)applicationContext.getBean(<span class="string">"hello"</span>);</span><br><span class="line">        hello.setName(<span class="string">"adc"</span>);</span><br><span class="line">        System.out.println(hello2);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="IOC创建对象的方式"><a href="#IOC创建对象的方式" class="headerlink" title="IOC创建对象的方式"></a>IOC创建对象的方式</h3><ol>
+<li>使用无参构造创建（默认）</li>
+<li>下标赋值</li>
+<li>类型创建</li>
+<li>参数名</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"hello"</span> <span class="attr">class</span>=<span class="string">"com.jwang261.pojo.Hello"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--这里的value如果换成ref就是去引用Spring容器中创建好的对象--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"Spring"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"next"</span> <span class="attr">ref</span>=<span class="string">"next"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"next"</span> <span class="attr">class</span>=<span class="string">"com.jwang261.pojo.Hello"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"Next"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--有参构造--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--1、下标赋值--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span> = <span class="string">"hello2"</span> <span class="attr">class</span>=<span class="string">"com.jwang261.pojo.Hello"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">index</span>=<span class="string">"0"</span> <span class="attr">value</span>=<span class="string">"hello2's name"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">index</span>=<span class="string">"1"</span> <span class="attr">ref</span>=<span class="string">"hello"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--2、类型创建不建议使用--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span> = <span class="string">"hello3"</span> <span class="attr">class</span>=<span class="string">"com.jwang261.pojo.Hello"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--同样type可能出问题--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">type</span>=<span class="string">"java.lang.String"</span> <span class="attr">value</span>=<span class="string">"hello3's name"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">type</span>=<span class="string">"com.jwang261.pojo.Hello"</span> <span class="attr">ref</span>=<span class="string">"hello2"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--3、直接通过参数名创建bean--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span> = <span class="string">"hello4"</span> <span class="attr">class</span>=<span class="string">"com.jwang261.pojo.Hello"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"hello4's name"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"next"</span> <span class="attr">ref</span>=<span class="string">"hello3"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Spring配置"><a href="#Spring配置" class="headerlink" title="Spring配置"></a>Spring配置</h2><h3 id="1-别名"><a href="#1-别名" class="headerlink" title="1. 别名"></a>1. 别名</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">alias</span> <span class="attr">name</span>=<span class="string">"hello"</span> <span class="attr">alias</span>=<span class="string">"helloNickName"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-Bean的配置"><a href="#2-Bean的配置" class="headerlink" title="2. Bean的配置"></a>2. Bean的配置</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--name也是别名，可以多个--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"hello5"</span> <span class="attr">class</span>=<span class="string">"com.jwang261.pojo.Hello"</span> <span class="attr">name</span>=<span class="string">"nickName1 nickName2,nickName3;nickName4"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-Import"><a href="#3-Import" class="headerlink" title="3. Import"></a>3. Import</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--多个人开发不同的类--&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">"beans.xml"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">"beans2.xml"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">"beans3.xml"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="依赖注入（DI）"><a href="#依赖注入（DI）" class="headerlink" title="依赖注入（DI）"></a>依赖注入（DI）</h2><h4 id="1-构造器注入"><a href="#1-构造器注入" class="headerlink" title="1. 构造器注入"></a>1. 构造器注入</h4><h4 id="2-Set注入（重点）"><a href="#2-Set注入（重点）" class="headerlink" title="2. Set注入（重点）"></a>2. Set注入（重点）</h4><ul>
+<li><p>依赖注入：本质是Set注入 ，</p>
+<ul>
+<li><p>依赖：bean对象的创建依赖于容器</p>
+</li>
+<li><p>注入：bean对象中的所有属性由容器来注入</p>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--Array--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">array</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">value</span>&gt;</span>xxx<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">value</span>&gt;</span>yyy<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"> 	   <span class="tag">&lt;/<span class="name">null</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">array</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--Map--&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name2"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">map</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">entry</span> <span class="attr">key</span>=<span class="string">"xxx1"</span> <span class="attr">value</span>=<span class="string">"yyy"</span>/&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">entry</span> <span class="attr">key</span>=<span class="string">"xxx2"</span> <span class="attr">value</span>=<span class="string">"yyy"</span>/&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">map</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--Map2--&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name2"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">props</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">"xxx1"</span>&gt;</span>yyy<span class="tag">&lt;/<span class="name">prop</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">"xxx2"</span>&gt;</span>yyy<span class="tag">&lt;/<span class="name">prop</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">"xxx3"</span>&gt;</span>yyy<span class="tag">&lt;/<span class="name">prop</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">"xxx4"</span>&gt;</span>yyy<span class="tag">&lt;/<span class="name">prop</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">props</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-其它（拓展）方式"><a href="#3-其它（拓展）方式" class="headerlink" title="3. 其它（拓展）方式"></a>3. 其它（拓展）方式</h4>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/asset/weChatPay.JPG">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -238,166 +273,128 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/06/01/Spring/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/30/%E8%81%8A%E8%81%8A%E5%90%89%E4%BB%96/" class="archive-article-date">
-  	<time datetime="2020-05-30T10:18:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-30</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/06/01/%E4%BF%9D%E5%85%BB%E5%90%89%E4%BB%96/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          保养吉他
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/30/%E8%81%8A%E8%81%8A%E5%90%89%E4%BB%96/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">聊聊吉他</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/30/%E8%81%8A%E8%81%8A%E5%90%89%E4%BB%96/">聊聊吉他</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">吉他</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/吉他//" class="article-tag-list-link color3">吉他</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#IOC理论思想（Spring核心思想）"><span class="toc-number">1.</span> <span class="toc-text">IOC理论思想（Spring核心思想）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IOC创建对象的方式"><span class="toc-number">1.1.</span> <span class="toc-text">IOC创建对象的方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring配置"><span class="toc-number">2.</span> <span class="toc-text">Spring配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-别名"><span class="toc-number">2.1.</span> <span class="toc-text">1. 别名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Bean的配置"><span class="toc-number">2.2.</span> <span class="toc-text">2. Bean的配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Import"><span class="toc-number">2.3.</span> <span class="toc-text">3. Import</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#依赖注入（DI）"><span class="toc-number">3.</span> <span class="toc-text">依赖注入（DI）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-构造器注入"><span class="toc-number">3.0.1.</span> <span class="toc-text">1. 构造器注入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Set注入（重点）"><span class="toc-number">3.0.2.</span> <span class="toc-text">2. Set注入（重点）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-其它（拓展）方式"><span class="toc-number">3.0.3.</span> <span class="toc-text">3. 其它（拓展）方式</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/27/%E6%88%91%E7%9A%84%E4%B8%89%E5%88%B7LeetCode/" class="archive-article-date">
-  	<time datetime="2020-05-28T02:58:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/27/%E6%88%91%E7%9A%84%E4%B8%89%E5%88%B7LeetCode/">我的三刷LeetCode</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java//" class="article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/27/JVMNote/" class="archive-article-date">
-  	<time datetime="2020-05-27T22:38:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-27</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/27/JVMNote/">JVMNote(未完)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java//" class="article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -420,8 +417,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
