@@ -13,7 +13,7 @@
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="LittlePeachie">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="呱呱太">
+<meta property="article:author" content="jwang261">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="LittlePeachie" type="application/atom+xml">
@@ -46,32 +46,32 @@
 			<img src="/asset/u=3526899289,2381125951&amp;fm=26&amp;gp=0.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">呱呱太</a></h1>
+		  <h1 class="header-author"><a href="/">jwang261</a></h1>
 		</hgroup>
 		
 
 		<nav class="header-menu">
 			<ul>
 			
-				<li><a href="/">主页</a></li>
+				<li><a href="/">Main</a></li>
 	        
-				<li><a href="/categories/%E7%BC%96%E7%A8%8B/">编程</a></li>
+				<li><a href="/categories/%E7%BC%96%E7%A8%8B/">Coding</a></li>
 	        
-				<li><a href="/categories/%E5%90%89%E4%BB%96/">吉他</a></li>
+				<li><a href="/categories/%E5%90%89%E4%BB%96/">Guitar</a></li>
 	        
 			</ul>
 		</nav>
 		<nav>
-    			总文章数 20
+    			总文章数 25
 		</nav>
 		<nav class="header-smart-menu">
     		
     			
-    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">Articles</a>
     			
             
     			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">About Me</a>
     			
             
 		</nav>
@@ -103,7 +103,7 @@
 				<img src="/asset/u=3526899289,2381125951&amp;fm=26&amp;gp=0.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">呱呱太</h1>
+			  <h1 class="header-author js-header-author">jwang261</h1>
 			</hgroup>
 			
 			
@@ -132,11 +132,11 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">Main</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/%E7%BC%96%E7%A8%8B/">编程</a></li>
+					<li style="width: 33.333333333333336%"><a href="/categories/%E7%BC%96%E7%A8%8B/">Coding</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/%E5%90%89%E4%BB%96/">吉他</a></li>
+					<li style="width: 33.333333333333336%"><a href="/categories/%E5%90%89%E4%BB%96/">Guitar</a></li>
 		        
 				</ul>
 			</nav>
@@ -154,14 +154,14 @@
             
   
     
-<article id="post-SpringCloud全家桶" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-Spring-Boot-核心概念" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/27/SpringCloud%E5%85%A8%E5%AE%B6%E6%A1%B6/">SpringCloud全家桶</a>
+      <a class="article-title" href="/2021/04/09/Spring-Boot-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/">Spring Boot 核心概念</a>
     </h1>
   
 
@@ -169,19 +169,330 @@
         
         <!--显示阅读次数完毕-->
         
-        <a href="/2020/07/27/SpringCloud%E5%85%A8%E5%AE%B6%E6%A1%B6/" class="archive-article-date">
-  	<time datetime="2020-07-27T20:30:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-27</time>
+        <a href="/2021/04/09/Spring-Boot-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/" class="archive-article-date">
+  	<time datetime="2021-04-09T16:04:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p>分布式微服务一般由注册中心、微服务、远程调用、负载均衡、服务降级和熔断、网关等组成，这篇笔记着重记录了负载均衡到网关的配置，另外还有关于SpringCloud Alibaba系列的组件，但这一块不推荐参考，因为我本人在在国外，用到的概率不大，所以在学习这一块的时候仅仅是了解了原理和基础配置，而且阿里这一块的技术更新太快，我看了一下，比如Seata不同版本的配置内容都有很大改动，对新手非常不友好。注册中心在本文略过，因为比较简单，不过不排除以后会整理笔记发出来。</p>
+        <h1 id="Spring-Boot的源码剖析和一些核心概念整理"><a href="#Spring-Boot的源码剖析和一些核心概念整理" class="headerlink" title="Spring Boot的源码剖析和一些核心概念整理"></a>Spring Boot的源码剖析和一些核心概念整理</h1><blockquote>
+<p>面试准备期间恰巧想复习一下这一块儿，于是花了点时间深入学习一下SpringBoot的源码分享出来，因为Spring系列内容太多太杂，也不是一篇两篇文章、一天两天学习就能学完的，所以这篇博文也会不定期更新</p>
 </blockquote>
         
-          <a class="article-more-a" href="/2020/07/27/SpringCloud%E5%85%A8%E5%AE%B6%E6%A1%B6/#more">more >></a>
+          <a class="article-more-a" href="/2021/04/09/Spring-Boot-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">编程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/04/09/Spring-Boot-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+    <section id="comments" style="margin:10px;padding:10px;background:#fff;">
+      <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "tNjW8tkF4sSuzwscLnUNYFjg-gzGzoHsz",
+            app_key: "o1Dj3T3mXICwV2SJg8QG1a6G",
+            placeholder: "(ﾟДﾟ≡ﾟдﾟ)!?",
+            avatar:"retro"
+        });
+    }
+</script>
+
+    </section>
+  
+  
+  
+    
+<article id="post-Zookeeper-Basic" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/02/01/Zookeeper-Basic/">Zookeeper Basic</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/02/01/Zookeeper-Basic/" class="archive-article-date">
+  	<time datetime="2021-02-02T02:50:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/02/01/Zookeeper-Basic/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+    <section id="comments" style="margin:10px;padding:10px;background:#fff;">
+      <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "tNjW8tkF4sSuzwscLnUNYFjg-gzGzoHsz",
+            app_key: "o1Dj3T3mXICwV2SJg8QG1a6G",
+            placeholder: "(ﾟДﾟ≡ﾟдﾟ)!?",
+            avatar:"retro"
+        });
+    }
+</script>
+
+    </section>
+  
+  
+  
+    
+<article id="post-Redis-Fail-to-Set-TTL-When-Integrating-Spring-Session" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/01/25/Redis-Fail-to-Set-TTL-When-Integrating-Spring-Session/">Redis Fail to Set TTL When Integrating Spring Session</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/01/25/Redis-Fail-to-Set-TTL-When-Integrating-Spring-Session/" class="archive-article-date">
+  	<time datetime="2021-01-25T16:59:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-Description"><a href="#1-Description" class="headerlink" title="1. Description"></a>1. Description</h2><p>When we integrate Redis in Spring (especially for Spring Session) and the setting of <code>server.servlet.session.timeout</code>  doesn’t work (Always 30mins).</p>
+        
+          <a class="article-more-a" href="/2021/01/25/Redis-Fail-to-Set-TTL-When-Integrating-Spring-Session/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Redis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/01/25/Redis-Fail-to-Set-TTL-When-Integrating-Spring-Session/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+    <section id="comments" style="margin:10px;padding:10px;background:#fff;">
+      <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "tNjW8tkF4sSuzwscLnUNYFjg-gzGzoHsz",
+            app_key: "o1Dj3T3mXICwV2SJg8QG1a6G",
+            placeholder: "(ﾟДﾟ≡ﾟдﾟ)!?",
+            avatar:"retro"
+        });
+    }
+</script>
+
+    </section>
+  
+  
+  
+    
+<article id="post-Problem-with-Loss-of-Request-Header-When-Doing-Remote-Invocation-by-Feign" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/01/18/Problem-with-Loss-of-Request-Header-When-Doing-Remote-Invocation-by-Feign/">Problem with Loss of Request Header When Doing Remote Invocation by Feign</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/01/18/Problem-with-Loss-of-Request-Header-When-Doing-Remote-Invocation-by-Feign/" class="archive-article-date">
+  	<time datetime="2021-01-18T22:17:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-Solution"><a href="#1-Solution" class="headerlink" title="1. Solution"></a>1. Solution</h2><p>When we implement openFeign to invoke another remote service, we may lose the requesting header including all the cookies, that may cause our login information invalid. That is because when we use feign client to send request, feign client will create a new request by its default template and default templates contains no requesting header and other information.</p>
+        
+          <a class="article-more-a" href="/2021/01/18/Problem-with-Loss-of-Request-Header-When-Doing-Remote-Invocation-by-Feign/#more">more >></a>
         
       
 
@@ -205,38 +516,15 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SpringCloud</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">SpringBoot</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
       		
 		</ul>
 	</div>
 
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/编程//" class="article-tag-list-link color3">编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/27/SpringCloud%E5%85%A8%E5%AE%B6%E6%A1%B6/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/01/18/Problem-with-Loss-of-Request-Header-When-Doing-Remote-Invocation-by-Feign/">展开全文 >></a>
         </p>
       
 
@@ -290,14 +578,14 @@
   
   
     
-<article id="post-Nginx安装配置与使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<article id="post-踩过坑的碎片知识点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/23/Nginx%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8/">Nginx基本的安装配置与使用</a>
+      <a class="article-title" href="/2020/09/03/%E8%B8%A9%E8%BF%87%E5%9D%91%E7%9A%84%E7%A2%8E%E7%89%87%E7%9F%A5%E8%AF%86%E7%82%B9/">踩过坑的碎片知识点</a>
     </h1>
   
 
@@ -305,8 +593,8 @@
         
         <!--显示阅读次数完毕-->
         
-        <a href="/2020/07/23/Nginx%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2020-07-23T17:14:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-23</time>
+        <a href="/2020/09/03/%E8%B8%A9%E8%BF%87%E5%9D%91%E7%9A%84%E7%A2%8E%E7%89%87%E7%9F%A5%E8%AF%86%E7%82%B9/" class="archive-article-date">
+  	<time datetime="2020-09-03T16:24:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-03</time>
 </a>
         
       </header>
@@ -314,131 +602,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>这篇文章只介绍在Linux系统有关Nginx的各种操作，暂时不会介绍正向代理、反向代理、动静分离、负载均衡等的概念，毕竟不懂的话根本不需要用到Nginx，更不需要参考这篇文章</p>
+<p>这篇文章会记录我学习阶段踩到的各种坑，包括在Java、IDE、数据库、Linux服务器中遇到的各种问题。可能是普遍的，也可能是特殊条件下碰到的。希望不管是我还是读者，再遇到相同的问题以后不要浪费和我一样多的时间。</p>
 </blockquote>
         
-          <a class="article-more-a" href="/2020/07/23/Nginx%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Linux - Distributed System</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/编程//" class="article-tag-list-link color3">编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/23/Nginx%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-    <section id="comments" style="margin:10px;padding:10px;background:#fff;">
-      <div id="vcomment" class="comment"></div> 
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-   var notify = 'false' == true ? true : false;
-   var verify = 'false' == true ? true : false;
-    window.onload = function() {
-        new Valine({
-            el: '.comment',
-            notify: notify,
-            verify: verify,
-            app_id: "tNjW8tkF4sSuzwscLnUNYFjg-gzGzoHsz",
-            app_key: "o1Dj3T3mXICwV2SJg8QG1a6G",
-            placeholder: "(ﾟДﾟ≡ﾟдﾟ)!?",
-            avatar:"retro"
-        });
-    }
-</script>
-
-    </section>
-  
-  
-  
-    
-<article id="post-Dubbo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/16/Dubbo/">Dubbo</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2020/07/16/Dubbo/" class="archive-article-date">
-  	<time datetime="2020-07-16T22:53:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1、概念："><a href="#1、概念：" class="headerlink" title="1、概念："></a>1、概念：</h1><p><a href="https://dubbo.apache.org/en-us/" target="_blank" rel="noopener">Dubbo</a>（官网中好像只有针对Spring的没有SpringBoot）原来是阿里的项目，后来停用，直到2018年启用并交给了Apache</p>
-<p>是一款高性能、轻量级、非入侵式的开源Java RPC框架，提供有三大核心能力：</p>
-<ul>
-<li>面向接口的远程方法调用</li>
-<li>负载均衡</li>
-<li>以及服务自动注册和发现</li>
-</ul>
-<p>这里先提一下，Dubbo和Zookeeper的关系就是：Zookeeper属于注册中心，Dubbo是分布式服务调用框架</p>
-        
-          <a class="article-more-a" href="/2020/07/16/Dubbo/#more">more >></a>
+          <a class="article-more-a" href="/2020/09/03/%E8%B8%A9%E8%BF%87%E5%9D%91%E7%9A%84%E7%A2%8E%E7%89%87%E7%9F%A5%E8%AF%86%E7%82%B9/#more">more >></a>
         
       
 
@@ -454,10 +621,6 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Distributed System</a>
-        		</li>
       		
 		</ul>
 	</div>
@@ -477,248 +640,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/16/Dubbo/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-    <section id="comments" style="margin:10px;padding:10px;background:#fff;">
-      <div id="vcomment" class="comment"></div> 
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-   var notify = 'false' == true ? true : false;
-   var verify = 'false' == true ? true : false;
-    window.onload = function() {
-        new Valine({
-            el: '.comment',
-            notify: notify,
-            verify: verify,
-            app_id: "tNjW8tkF4sSuzwscLnUNYFjg-gzGzoHsz",
-            app_key: "o1Dj3T3mXICwV2SJg8QG1a6G",
-            placeholder: "(ﾟДﾟ≡ﾟдﾟ)!?",
-            avatar:"retro"
-        });
-    }
-</script>
-
-    </section>
-  
-  
-  
-    
-<article id="post-扒歌笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/11/%E6%89%92%E6%AD%8C%E7%AC%94%E8%AE%B0/">扒歌笔记</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2020/07/11/%E6%89%92%E6%AD%8C%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2020-07-11T16:53:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>新手扒歌有些调的和弦老记不住，就写在网上方便自己查阅</p>
-<p>非新手友好笔记</p>
-</blockquote>
-<h1 id="1、调和和弦"><a href="#1、调和和弦" class="headerlink" title="1、调和和弦"></a>1、调和和弦</h1><h2 id="E调-遇到-F调目前我会改用E调-1品"><a href="#E调-遇到-F调目前我会改用E调-1品" class="headerlink" title="E调(遇到#F调目前我会改用E调+1品)"></a>E调(遇到#F调目前我会改用E调+1品)</h2><p>E #Fm #Gm A B #Cm</p>
-        
-          <a class="article-more-a" href="/2020/07/11/%E6%89%92%E6%AD%8C%E7%AC%94%E8%AE%B0/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">吉他</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/吉他//" class="article-tag-list-link color3">吉他</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/11/%E6%89%92%E6%AD%8C%E7%AC%94%E8%AE%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-    <section id="comments" style="margin:10px;padding:10px;background:#fff;">
-      <div id="vcomment" class="comment"></div> 
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-   var notify = 'false' == true ? true : false;
-   var verify = 'false' == true ? true : false;
-    window.onload = function() {
-        new Valine({
-            el: '.comment',
-            notify: notify,
-            verify: verify,
-            app_id: "tNjW8tkF4sSuzwscLnUNYFjg-gzGzoHsz",
-            app_key: "o1Dj3T3mXICwV2SJg8QG1a6G",
-            placeholder: "(ﾟДﾟ≡ﾟдﾟ)!?",
-            avatar:"retro"
-        });
-    }
-</script>
-
-    </section>
-  
-  
-  
-    
-<article id="post-Shiro" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/02/Shiro/">Shiro</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2020/07/02/Shiro/" class="archive-article-date">
-  	<time datetime="2020-07-02T23:59:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1、Shiro简介"><a href="#1、Shiro简介" class="headerlink" title="1、Shiro简介"></a>1、Shiro简介</h1><p>Shiro是Apache旗下的Java安全框架</p>
-<p>Shrio可以完成认证、授权、加密、会话管理、Web集成、缓存等框架</p>
-        
-          <a class="article-more-a" href="/2020/07/02/Shiro/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Security</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/编程//" class="article-tag-list-link color3">编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/07/02/Shiro/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/09/03/%E8%B8%A9%E8%BF%87%E5%9D%91%E7%9A%84%E7%A2%8E%E7%89%87%E7%9F%A5%E8%AF%86%E7%82%B9/">展开全文 >></a>
         </p>
       
 
@@ -773,7 +695,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -785,7 +707,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 呱呱太
+    		&copy; 2021 jwang261
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -838,11 +760,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">Articles</a></li>
       
         
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">About Me</a></li>
       
         
     </ul>
@@ -871,10 +793,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Big Data</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
@@ -891,15 +809,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Big Data</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Security</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -916,10 +846,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
             
             <div class="clearfix"></div>
@@ -1044,5 +970,5 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":160,"height":340},"mobile":{"show":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":160,"height":340},"mobile":{"show":false},"log":false});</script></body>
 </html>

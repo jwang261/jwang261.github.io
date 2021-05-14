@@ -6,15 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/6 | LittlePeachie</title>
+  <title>Spring Boot 核心概念 | LittlePeachie</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="LittlePeachie">
-<meta property="og:url" content="http://yoursite.com/archives/2020/06/page/2/index.html">
+  <meta name="description" content="Spring Boot的源码剖析和一些核心概念整理 面试准备期间恰巧想复习一下这一块儿，于是花了点时间深入学习一下SpringBoot的源码分享出来，因为Spring系列内容太多太杂，也不是一篇两篇文章、一天两天学习就能学完的，所以这篇博文也会不定期更新">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring Boot 核心概念">
+<meta property="og:url" content="http://yoursite.com/2021/04/09/Spring-Boot-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/index.html">
 <meta property="og:site_name" content="LittlePeachie">
+<meta property="og:description" content="Spring Boot的源码剖析和一些核心概念整理 面试准备期间恰巧想复习一下这一块儿，于是花了点时间深入学习一下SpringBoot的源码分享出来，因为Spring系列内容太多太杂，也不是一篇两篇文章、一天两天学习就能学完的，所以这篇博文也会不定期更新">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="呱呱太">
+<meta property="og:image" content="http://yoursite.com/2021/04/09/Spring-Boot-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/image-20210409132551144.png">
+<meta property="og:image" content="http://yoursite.com/2021/04/09/Spring-Boot-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/image-20210409133448938.png">
+<meta property="og:image" content="http://yoursite.com/2021/04/09/Spring-Boot-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/image-20210409133832736.png">
+<meta property="og:image" content="http://yoursite.com/2021/04/09/Spring-Boot-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/image-20210410125452060.png">
+<meta property="og:image" content="http://yoursite.com/2021/04/09/Spring-Boot-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/image-20210410132224932.png">
+<meta property="article:published_time" content="2021-04-09T16:04:15.000Z">
+<meta property="article:modified_time" content="2021-04-12T02:59:47.519Z">
+<meta property="article:author" content="jwang261">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Spring">
+<meta property="article:tag" content="编程">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2021/04/09/Spring-Boot-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/image-20210409132551144.png">
   
     <link rel="alternative" href="/atom.xml" title="LittlePeachie" type="application/atom+xml">
   
@@ -46,32 +59,32 @@
 			<img src="/asset/u=3526899289,2381125951&amp;fm=26&amp;gp=0.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">呱呱太</a></h1>
+		  <h1 class="header-author"><a href="/">jwang261</a></h1>
 		</hgroup>
 		
 
 		<nav class="header-menu">
 			<ul>
 			
-				<li><a href="/">主页</a></li>
+				<li><a href="/">Main</a></li>
 	        
-				<li><a href="/categories/%E7%BC%96%E7%A8%8B/">编程</a></li>
+				<li><a href="/categories/%E7%BC%96%E7%A8%8B/">Coding</a></li>
 	        
-				<li><a href="/categories/%E5%90%89%E4%BB%96/">吉他</a></li>
+				<li><a href="/categories/%E5%90%89%E4%BB%96/">Guitar</a></li>
 	        
 			</ul>
 		</nav>
 		<nav>
-    			总文章数 20
+    			总文章数 25
 		</nav>
 		<nav class="header-smart-menu">
     		
     			
-    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">Articles</a>
     			
             
     			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">About Me</a>
     			
             
 		</nav>
@@ -103,7 +116,7 @@
 				<img src="/asset/u=3526899289,2381125951&amp;fm=26&amp;gp=0.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">呱呱太</h1>
+			  <h1 class="header-author js-header-author">jwang261</h1>
 			</hgroup>
 			
 			
@@ -132,11 +145,11 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">Main</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/%E7%BC%96%E7%A8%8B/">编程</a></li>
+					<li style="width: 33.333333333333336%"><a href="/categories/%E7%BC%96%E7%A8%8B/">Coding</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/%E5%90%89%E4%BB%96/">吉他</a></li>
+					<li style="width: 33.333333333333336%"><a href="/categories/%E5%90%89%E4%BB%96/">Guitar</a></li>
 		        
 				</ul>
 			</nav>
@@ -152,35 +165,177 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-  
+<article id="post-Spring-Boot-核心概念" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/01/Spring/" class="archive-article-date">
-  	<time datetime="2020-06-01T10:13:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-01</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/01/Spring/">Spring</a>
+    <h1 class="article-title" itemprop="name">
+      Spring Boot 核心概念
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        <!--显示阅读次数-->
+        
+          <br/>
+          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+          <span class="icon-sort"></span>
+          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+                    阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+          </span>
+          </a>
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/04/09/Spring-Boot-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/" class="archive-article-date">
+  	<time datetime="2021-04-09T16:04:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Spring-Boot的源码剖析和一些核心概念整理"><a href="#Spring-Boot的源码剖析和一些核心概念整理" class="headerlink" title="Spring Boot的源码剖析和一些核心概念整理"></a>Spring Boot的源码剖析和一些核心概念整理</h1><blockquote>
+<p>面试准备期间恰巧想复习一下这一块儿，于是花了点时间深入学习一下SpringBoot的源码分享出来，因为Spring系列内容太多太杂，也不是一篇两篇文章、一天两天学习就能学完的，所以这篇博文也会不定期更新</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="一些注解："><a href="#一些注解：" class="headerlink" title="一些注解："></a>一些注解：</h2><ol>
+<li><p><code>@ConditionalOnBean/MissingBeanXXXXXXX</code>条件装配</p>
+</li>
+<li><p><code>@ImportResource(&quot;classpath:XXX.xml&quot;)</code>允许SpringBoot倒入Spring的配置文件</p>
+</li>
+<li><p><code>@CofigurationProperties(prefix = &quot;myCar&quot;)</code>给Bean注入配置文件属性，前提Bean必须以<code>@Component</code>注入文件或者在配置类标注<code>@EnableConfigurationProperties(beanName.class)</code>，后者也适用于给第三方包的某个类属性注入值</p>
+</li>
+<li><p><code>@AutoConfigureAfter</code> 在某个配置完成后再执行，来解决依赖问题</p>
+</li>
+</ol>
+<h2 id="自动装配原理："><a href="#自动装配原理：" class="headerlink" title="自动装配原理："></a>自动装配原理：</h2><h3 id="第一层："><a href="#第一层：" class="headerlink" title="第一层："></a>第一层：</h3><p>首先SpringBoot启动类注解<code>@SpringBootApplication</code>点进去会发现除了基本的注解类注解，还有其他三个注解<code>@SpringBootApplication</code> &lt;=&gt; <code>@SpringBootConfiguration</code>+ @<code>ComponentScan</code> + <code>@EnableAutoConfiguration</code> </p>
+<h3 id="第二层："><a href="#第二层：" class="headerlink" title="第二层："></a>第二层：</h3><p><code>@SpringBootConfiguration</code> 点进去其实是 <code>@Configuration</code></p>
+<p><code>@EnableAutoConfiguration</code> 点进去可以看到有两个：<code>@AutoConfigurationPackage</code> + <code>@Import(AutoConfigurationImportSelector.class)</code></p>
+<h3 id="第三层："><a href="#第三层：" class="headerlink" title="第三层："></a>第三层：</h3><p><code>@AutoConfigurationPackage</code>点进去发现：<code>@Import(AutoConfigurationPackages.Registrar.class)</code> 利用Registrar给容器中倒入导入一系列组件：将启动类程序所在的包下的所有组件导入进来</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Registrar</span> <span class="keyword">implements</span> <span class="title">ImportBeanDefinitionRegistrar</span>, <span class="title">DeterminableImports</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerBeanDefinitions</span><span class="params">(AnnotationMetadata metadata, BeanDefinitionRegistry registry)</span> </span>&#123;</span><br><span class="line">      <span class="comment">//metadata就是注解的源信息，我们注解实际上隐含是在MainApplication上的</span></span><br><span class="line">			register(registry, <span class="keyword">new</span> PackageImport(metadata).getPackageName());</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> Set&lt;Object&gt; <span class="title">determineImports</span><span class="params">(AnnotationMetadata metadata)</span> </span>&#123;</span><br><span class="line">			<span class="keyword">return</span> Collections.singleton(<span class="keyword">new</span> PackageImport(metadata));</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<p>下面我们来看上述第二层的第二个注解的第二个分解：<code>@Import(AutoConfigurationImportSelector.class)</code></p>
+<p>点进类看到</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> String[] selectImports(AnnotationMetadata annotationMetadata) &#123;</span><br><span class="line">		<span class="keyword">if</span> (!isEnabled(annotationMetadata)) &#123;</span><br><span class="line">			<span class="keyword">return</span> NO_IMPORTS;</span><br><span class="line">		&#125;</span><br><span class="line">		AutoConfigurationMetadata autoConfigurationMetadata = AutoConfigurationMetadataLoader</span><br><span class="line">				.loadMetadata(<span class="keyword">this</span>.beanClassLoader);</span><br><span class="line">		AutoConfigurationEntry autoConfigurationEntry = getAutoConfigurationEntry(autoConfigurationMetadata,</span><br><span class="line">				annotationMetadata);</span><br><span class="line">		<span class="keyword">return</span> StringUtils.toStringArray(autoConfigurationEntry.getConfigurations());</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<p>核心就在这个<code>getAutoConfiguration</code>方法上</p>
+<h3 id="第四层："><a href="#第四层：" class="headerlink" title="第四层："></a>第四层：</h3><p>点进去看到</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> AutoConfigurationEntry <span class="title">getAutoConfigurationEntry</span><span class="params">(AutoConfigurationMetadata autoConfigurationMetadata,</span></span></span><br><span class="line"><span class="function"><span class="params">			AnnotationMetadata annotationMetadata)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (!isEnabled(annotationMetadata)) &#123;</span><br><span class="line">			<span class="keyword">return</span> EMPTY_ENTRY;</span><br><span class="line">		&#125;</span><br><span class="line">		AnnotationAttributes attributes = getAttributes(annotationMetadata);</span><br><span class="line">		List&lt;String&gt; configurations = getCandidateConfigurations(annotationMetadata, attributes);</span><br><span class="line">		configurations = removeDuplicates(configurations);</span><br><span class="line">		Set&lt;String&gt; exclusions = getExclusions(annotationMetadata, attributes);</span><br><span class="line">		checkExcludedClasses(configurations, exclusions);</span><br><span class="line">		configurations.removeAll(exclusions);</span><br><span class="line">		configurations = filter(configurations, autoConfigurationMetadata);</span><br><span class="line">		fireAutoConfigurationImportEvents(configurations, exclusions);</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> AutoConfigurationEntry(configurations, exclusions);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上<code>configurations这个List里面包含了很多元素</code></p>
+<p><img src="/2021/04/09/Spring-Boot-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/image-20210409132551144.png" alt="image-20210409132551144"></p>
+<h3 id="第五层："><a href="#第五层：" class="headerlink" title="第五层："></a>第五层：</h3><p>实际上这里<code>getCandidateConfiguration</code>获取了所有候选配置，点进去发现</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> List&lt;String&gt; <span class="title">getCandidateConfigurations</span><span class="params">(AnnotationMetadata metadata, AnnotationAttributes attributes)</span> </span>&#123;</span><br><span class="line">		List&lt;String&gt; configurations = SpringFactoriesLoader.loadFactoryNames(getSpringFactoriesLoaderFactoryClass(),</span><br><span class="line">				getBeanClassLoader());</span><br><span class="line">		Assert.notEmpty(configurations, <span class="string">"No auto configuration classes found in META-INF/spring.factories. If you "</span></span><br><span class="line">				+ <span class="string">"are using a custom packaging, make sure that file is correct."</span>);</span><br><span class="line">		<span class="keyword">return</span> configurations;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="第六层："><a href="#第六层：" class="headerlink" title="第六层："></a>第六层：</h3><p>可以把它叫做Spring的工厂加载器，这里肯定用了工厂设计模式，猜测是根据配置去创建相应的配置类，点进这个方法发现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;String&gt; <span class="title">loadFactoryNames</span><span class="params">(Class&lt;?&gt; factoryType, @Nullable ClassLoader classLoader)</span> </span>&#123;</span><br><span class="line">		String factoryTypeName = factoryType.getName();</span><br><span class="line">		<span class="keyword">return</span> loadSpringFactories(classLoader).getOrDefault(factoryTypeName, Collections.emptyList());</span><br><span class="line">	&#125;</span><br><span class="line"><span class="comment">//上面的方法调用下面的，只copy个签名</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String, List&lt;String&gt;&gt; loadSpringFactories(<span class="meta">@Nullable</span> ClassLoader classLoader) &#123;...&#125;</span><br></pre></td></tr></table></figure>
+
+<p>下面方法打个断点：</p>
+<p><img src="/2021/04/09/Spring-Boot-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/image-20210409133448938.png" alt="image-20210409133448938"></p>
+<p>默认扫描所有<code>META-INF/spring.factories</code>路径下的文件</p>
+<p>打开左侧依赖的有关AutoConfiguration的一个包就可以看到.factories文件</p>
+<p><img src="/2021/04/09/Spring-Boot-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/image-20210409133832736.png" alt="image-20210409133832736"></p>
+<p>这里我们需要查看的最核心的包就是这个</p>
+<p>虽然启动SpringBoot的时候会全部加载自动配置类，但是最终会按需生效，那么问题就是如何实现按需？这里面引入了上面提到的注解<code>@ConditionalOnClass</code>如果我们没有在pom引入某个包，那必要的一些class文件就不存在， 只要class不存在，那我只要将所有和该功能相关的自动配置类全部标上 <code>@ConditionalOnClass</code> 就可以让其失效。</p>
+<h3 id="第七层："><a href="#第七层：" class="headerlink" title="第七层："></a>第七层：</h3><p>在自动配置类的类注解或者方法注解里会看到<code>@EnableConfigurationProperties(XXXProperties.class)</code></p>
+<p>点进去看到注解<code>@ConfigurationProperties</code> ，即上文提到的读取配置文件属性的注解</p>
+<p>另提一嘴：这里有个非常有趣的代码段：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="meta">@ConditionalOnBean</span>(MultipartResolver<span class="class">.<span class="keyword">class</span>)</span></span><br><span class="line"><span class="class">@<span class="title">ConditionalOnMissingBean</span>(<span class="title">name</span> </span>= DispatcherServlet.MULTIPART_RESOLVER_BEAN_NAME)<span class="comment">//这里面点进去发现这值是multipartResolver</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> MultipartResolver <span class="title">multipartResolver</span><span class="params">(MultipartResolver resolver)</span> </span>&#123;</span><br><span class="line">   <span class="comment">// Detect if the user has created a MultipartResolver but named it incorrectly</span></span><br><span class="line">   <span class="keyword">return</span> resolver;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>有趣之一：首先看方法：我直接返回传入的值</p>
+<p>有趣之二：注解要求执行方法的条件：有<code>MultipartResolver</code>个类，容器中却没有叫做<code>multipartResolver</code>的Bean对象</p>
+<p>解释：其实这是SpringBoot的规范化，预防用户在不知情的情况下错误定义变量名然后导致错误。</p>
+<p>实际上，我们知道在Spring如果用<code>@Bean</code>创建组件，那组件名称便是方法名，也就是上述的</p>
+<p><code>multipartResolver</code>实际上用户可能自己定义该类却没有正确命名，那便满足Conditional的两个条件：有类却无名，那SpringBoot自动帮你按类注入（因为标注了Bean），并返回正确的名（方法名即BeanName）</p>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>SpringBoot首先加载所有自动配置类，如果满足条件，则生效。</p>
+<p>SpringBoot在底层默认配置了大量的配置信息，如果用户也有配置，优先使用用户的，既可以重写Bean，又可以编辑配置文件。（因为所有的配置信息来源都来源XXXProperties.class，而<code>@ConfiguationProperties</code>的注解，使得所有默认配置信息都可以被符合要求的配置文件中的值覆盖）</p>
+<h2 id="DispatcherServlet"><a href="#DispatcherServlet" class="headerlink" title="DispatcherServlet"></a>DispatcherServlet</h2><p>外部所有的请求第一步都会到DispatcherServlet这个类，这个类是HttpServlet子类，如图：</p>
+<p><img src="/2021/04/09/Spring-Boot-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/image-20210410125452060.png" alt="image-20210410125452060"></p>
+<p>而doGet、doPost这些方法在FrameworkServlet中就已经重写好了。</p>
+<p>源码调用流程：doGet -&gt; processRequest -&gt; doService</p>
+<p>而doService是抽象方法，再回到DispatcherServlet中，发现对此方法进行了重写：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doService</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		...</span><br><span class="line">    <span class="comment">//核心在这里，每个请求都会掉用这个方法，点进去</span></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			doDispatch(request, response);</span><br><span class="line">		&#125;</span><br><span class="line">    ...</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>我在SpringMVC中提到过DispatcherServlet的处理流程，他会找到与url中匹配的Controller，而找Controller(handler)的代码块在这里：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Determine handler for the current request.</span></span><br><span class="line"><span class="comment">//processedRequest会包含我们当前请求的Endpoint信息</span></span><br><span class="line">mappedHandler = getHandler(processedRequest);</span><br><span class="line"><span class="keyword">if</span> (mappedHandler == <span class="keyword">null</span>) &#123;</span><br><span class="line">	noHandlerFound(processedRequest, response);</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>点进<code>getHandler()方法</code>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Nullable</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> HandlerExecutionChain <span class="title">getHandler</span><span class="params">(HttpServletRequest request)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">   <span class="keyword">if</span> (<span class="keyword">this</span>.handlerMappings != <span class="keyword">null</span>) &#123;</span><br><span class="line">     	<span class="comment">//我们遍handlerMappings这个链表（当前版本一共有五个元素，包括了欢迎页、请求映射等信息，这里我们主要看的是记录请求映射Controller信息的RequestMappingHandler）</span></span><br><span class="line">      <span class="keyword">for</span> (HandlerMapping mapping : <span class="keyword">this</span>.handlerMappings) &#123;</span><br><span class="line">         HandlerExecutionChain handler = mapping.getHandler(request);</span><br><span class="line">         <span class="keyword">if</span> (handler != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> handler;</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>debug查看RequestMappingHandler中的value中的mappingRegistry中的registry可以看到我们当前项目所有配置的controller和路径的映射全部记录在里面。</p>
+<img src="/2021/04/09/Spring-Boot-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/image-20210410132224932.png" alt="image-20210410132224932" style="zoom:50%;" align="left">
+
+<p>一直step into可以看到也是我之前有写的HandlerMethod：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> HandlerMethod <span class="title">getHandlerInternal</span><span class="params">(HttpServletRequest request)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">   String lookupPath = getUrlPathHelper().getLookupPathForRequest(request);</span><br><span class="line">   request.setAttribute(LOOKUP_PATH, lookupPath);</span><br><span class="line">   <span class="keyword">this</span>.mappingRegistry.acquireReadLock();</span><br><span class="line">   <span class="keyword">try</span> &#123;</span><br><span class="line">     	<span class="comment">//这里这个放方法拿着我们的请求路径和请求信息去找处理者</span></span><br><span class="line">      HandlerMethod handlerMethod = lookupHandlerMethod(lookupPath, request);</span><br><span class="line">      <span class="keyword">return</span> (handlerMethod != <span class="keyword">null</span> ? handlerMethod.createWithResolvedBean() : <span class="keyword">null</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">finally</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.mappingRegistry.releaseReadLock();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>点进去<code>lookupHandlerMethod()</code>方法发现如下代码段：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">if</span> (directPathMatches != <span class="keyword">null</span>) &#123;</span><br><span class="line">  		<span class="comment">// 如果有合适的路径映射相匹配，调用这个方法添加到一个用来记录匹配成功的集合里面</span></span><br><span class="line">			addMatchingMappings(directPathMatches, matches, request);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (matches.isEmpty()) &#123;</span><br><span class="line">			<span class="comment">// No choice but to go through all mappings...</span></span><br><span class="line">      <span class="comment">// 没找到进行相应的处理</span></span><br><span class="line">			addMatchingMappings(<span class="keyword">this</span>.mappingRegistry.getMappings().keySet(), matches, request);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 如果有匹配（例如找到了GET /hello的请求，就会往下走）</span></span><br><span class="line">		<span class="keyword">if</span> (!matches.isEmpty()) &#123;</span><br><span class="line">			Comparator&lt;Match&gt; comparator = <span class="keyword">new</span> MatchComparator(getMappingComparator(request));</span><br><span class="line">			matches.sort(comparator);</span><br><span class="line">			Match bestMatch = matches.get(<span class="number">0</span>);</span><br><span class="line">      <span class="comment">// 如果有多个放方法可以处理本次请求 （GET /hello x2， 会在下面抛出异常）</span></span><br><span class="line">			<span class="keyword">if</span> (matches.size() &gt; <span class="number">1</span>) &#123;</span><br><span class="line">				<span class="keyword">if</span> (logger.isTraceEnabled()) &#123;</span><br><span class="line">					logger.trace(matches.size() + <span class="string">" matching mappings: "</span> + matches);</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">if</span> (CorsUtils.isPreFlightRequest(request)) &#123;</span><br><span class="line">					<span class="keyword">return</span> PREFLIGHT_AMBIGUOUS_MATCH;</span><br><span class="line">				&#125;</span><br><span class="line">				Match secondBestMatch = matches.get(<span class="number">1</span>);</span><br><span class="line">				<span class="keyword">if</span> (comparator.compare(bestMatch, secondBestMatch) == <span class="number">0</span>) &#123;</span><br><span class="line">					Method m1 = bestMatch.handlerMethod.getMethod();</span><br><span class="line">					Method m2 = secondBestMatch.handlerMethod.getMethod();</span><br><span class="line">					String uri = request.getRequestURI();</span><br><span class="line">					<span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(</span><br><span class="line">							<span class="string">"Ambiguous handler methods mapped for '"</span> + uri + <span class="string">"': &#123;"</span> + m1 + <span class="string">", "</span> + m2 + <span class="string">"&#125;"</span>);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>补充：在找到对应的handlerMethod之后才会去寻找相应的handlerAdapter（解析参数等）</li>
+</ul>
+<h3 id="自动装配："><a href="#自动装配：" class="headerlink" title="自动装配："></a>自动装配：</h3><p>SpringBoot的<code>WebMvcAutoConfiguration</code>里面自动装配了请求与处理的映射。HandlerMapping也是可以自定义的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="meta">@Primary</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="comment">//我们所有标有@RequstMapping注解的方法都会经过这个方法被记录在案</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> RequestMappingHandlerMapping <span class="title">requestMappingHandlerMapping</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">      @Qualifier(<span class="string">"mvcContentNegotiationManager"</span>)</span> ContentNegotiationManager contentNegotiationManager,</span></span><br><span class="line"><span class="function">      @<span class="title">Qualifier</span><span class="params">(<span class="string">"mvcConversionService"</span>)</span> FormattingConversionService conversionService,</span></span><br><span class="line"><span class="function">      @<span class="title">Qualifier</span><span class="params">(<span class="string">"mvcResourceUrlProvider"</span>)</span> ResourceUrlProvider resourceUrlProvider) </span>&#123;</span><br><span class="line">   <span class="comment">// Must be @Primary for MvcUriComponentsBuilder to work</span></span><br><span class="line">   <span class="keyword">return</span> <span class="keyword">super</span>.requestMappingHandlerMapping(contentNegotiationManager, conversionService,</span><br><span class="line">         resourceUrlProvider);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="comment">//欢迎页配置</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> WelcomePageHandlerMapping <span class="title">welcomePageHandlerMapping</span><span class="params">(ApplicationContext applicationContext,</span></span></span><br><span class="line"><span class="function"><span class="params">      FormattingConversionService mvcConversionService, ResourceUrlProvider mvcResourceUrlProvider)</span> </span>&#123;</span><br><span class="line">   WelcomePageHandlerMapping welcomePageHandlerMapping = <span class="keyword">new</span> WelcomePageHandlerMapping(</span><br><span class="line">         <span class="keyword">new</span> TemplateAvailabilityProviders(applicationContext), applicationContext, getWelcomePage(),</span><br><span class="line">         <span class="keyword">this</span>.mvcProperties.getStaticPathPattern());</span><br><span class="line">   welcomePageHandlerMapping.setInterceptors(getInterceptors(mvcConversionService, mvcResourceUrlProvider));</span><br><span class="line">   <span class="keyword">return</span> welcomePageHandlerMapping;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="SpringBoot支持传入哪些参数"><a href="#SpringBoot支持传入哪些参数" class="headerlink" title="SpringBoot支持传入哪些参数"></a>SpringBoot支持传入哪些参数</h2><h2 id="SpringBoot如何解析传入的参数"><a href="#SpringBoot如何解析传入的参数" class="headerlink" title="SpringBoot如何解析传入的参数"></a>SpringBoot如何解析传入的参数</h2><h3 id="1-寻找合适的适配器（HandlerAdapter）"><a href="#1-寻找合适的适配器（HandlerAdapter）" class="headerlink" title="1. 寻找合适的适配器（HandlerAdapter）"></a>1. 寻找合适的适配器（HandlerAdapter）</h3><p>在找到可以处理请求的handler之后，为此handler找到相应的适配器 - HandlerAdapter， 默认找的第一个<code>RequestMappingHandlerAdapter</code>点进去有个方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Nullable</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> ModelAndView <span class="title">invokeHandlerMethod</span><span class="params">(HttpServletRequest request,</span></span></span><br><span class="line"><span class="function"><span class="params">      HttpServletResponse response, HandlerMethod handlerMethod)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">  ...</span><br><span class="line">  <span class="comment">// 参数解析器</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.argumentResolvers != <span class="keyword">null</span>) &#123;</span><br><span class="line">    invocableMethod.setHandlerMethodArgumentResolvers(<span class="keyword">this</span>.argumentResolvers);</span><br><span class="line">			&#125;</span><br><span class="line">  <span class="comment">// 返回值处理器</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.returnValueHandlers != <span class="keyword">null</span>) &#123;</span><br><span class="line">				invocableMethod.setHandlerMethodReturnValueHandlers(<span class="keyword">this</span>.returnValueHandlers);</span><br><span class="line">			&#125;</span><br><span class="line">  ...</span><br><span class="line">  <span class="comment">// 执行方法</span></span><br><span class="line">  invocableMethod.invokeAndHandle(webRequest, mavContainer);</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>参数解析器：确定调用的方法每一个传入的参数是什么</p>
+<p>返回值处理器：决定了方法返回值可以有多少种</p>
+<p><code>invocableMethod.invokeAndHandle(webRequest, mavContainer);</code>点进去：</p>
+<p>Controller的方法在调用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">invokeAndHandle</span><span class="params">(ServletWebRequest webRequest, ModelAndViewContainer mavContainer,</span></span></span><br><span class="line"><span class="function"><span class="params">			Object... providedArgs)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">...</span><br><span class="line">		<span class="comment">// 此方法结束，调用Controller结束</span></span><br><span class="line">		Object returnValue = invokeForRequest(webRequest, mavContainer, providedArgs);</span><br><span class="line">...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>时执行。</p>
+<h3 id="2-得到调用方法的所有参数"><a href="#2-得到调用方法的所有参数" class="headerlink" title="2. 得到调用方法的所有参数"></a>2. 得到调用方法的所有参数</h3><p>点进去发现核心是要得到controller的参数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Nullable</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">invokeForRequest</span><span class="params">(NativeWebRequest request, @Nullable ModelAndViewContainer mavContainer, Object... providedArgs)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    <span class="comment">// 得到方法参数</span></span><br><span class="line">    Object[] args = <span class="keyword">this</span>.getMethodArgumentValues(request, mavContainer, providedArgs);</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.logger.isTraceEnabled()) &#123;</span><br><span class="line">        <span class="keyword">this</span>.logger.trace(<span class="string">"Arguments: "</span> + Arrays.toString(args));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.doInvoke(args);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-判断参数类型是否支持，如果支持则赋值"><a href="#3-判断参数类型是否支持，如果支持则赋值" class="headerlink" title="3. 判断参数类型是否支持，如果支持则赋值"></a>3. 判断参数类型是否支持，如果支持则赋值</h3><p>点进去，这个过程就是确定参数类型并得到参数值：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> Object[] getMethodArgumentValues(NativeWebRequest request, <span class="meta">@Nullable</span> ModelAndViewContainer mavContainer,</span><br><span class="line">      Object... providedArgs) <span class="keyword">throws</span> Exception &#123;</span><br><span class="line"></span><br><span class="line">   MethodParameter[] parameters = getMethodParameters();</span><br><span class="line">   <span class="keyword">if</span> (ObjectUtils.isEmpty(parameters)) &#123;</span><br><span class="line">      <span class="keyword">return</span> EMPTY_ARGS;</span><br><span class="line">   &#125;</span><br><span class="line">	 <span class="comment">// 传入的所有参数</span></span><br><span class="line">   Object[] args = <span class="keyword">new</span> Object[parameters.length];</span><br><span class="line">   <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; parameters.length; i++) &#123;</span><br><span class="line">      MethodParameter parameter = parameters[i];</span><br><span class="line">      parameter.initParameterNameDiscovery(<span class="keyword">this</span>.parameterNameDiscoverer);</span><br><span class="line">      args[i] = findProvidedArgument(parameter, providedArgs);</span><br><span class="line">      <span class="keyword">if</span> (args[i] != <span class="keyword">null</span>) &#123;</span><br><span class="line">         <span class="keyword">continue</span>;</span><br><span class="line">      &#125;</span><br><span class="line">     	<span class="comment">// 需要知道给我的参数是否被支持</span></span><br><span class="line">      <span class="keyword">if</span> (!<span class="keyword">this</span>.resolvers.supportsParameter(parameter)) &#123;</span><br><span class="line">         <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(formatArgumentError(parameter, <span class="string">"No suitable resolver"</span>));</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">         args[i] = <span class="keyword">this</span>.resolvers.resolveArgument(parameter, mavContainer, request, <span class="keyword">this</span>.dataBinderFactory);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">catch</span> (Exception ex) &#123;</span><br><span class="line">         <span class="comment">// Leave stack trace for later, exception may actually be resolved and handled...</span></span><br><span class="line">         <span class="keyword">if</span> (logger.isDebugEnabled()) &#123;</span><br><span class="line">            String exMsg = ex.getMessage();</span><br><span class="line">            <span class="keyword">if</span> (exMsg != <span class="keyword">null</span> &amp;&amp; !exMsg.contains(parameter.getExecutable().toGenericString())) &#123;</span><br><span class="line">               logger.debug(formatArgumentError(parameter, exMsg));</span><br><span class="line">            &#125;</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">throw</span> ex;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> args;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-判断是否可以解析参数"><a href="#4-判断是否可以解析参数" class="headerlink" title="4. 判断是否可以解析参数"></a>4. 判断是否可以解析参数</h3><p><code>resolvers.supportsParameter(parameter)</code>这个方法一直往里点：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Nullable</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> HandlerMethodArgumentResolver <span class="title">getArgumentResolver</span><span class="params">(MethodParameter parameter)</span> </span>&#123;</span><br><span class="line">   HandlerMethodArgumentResolver result = <span class="keyword">this</span>.argumentResolverCache.get(parameter);</span><br><span class="line">   <span class="keyword">if</span> (result == <span class="keyword">null</span>) &#123;</span><br><span class="line">      <span class="comment">// 遍历所有解析器，看是否能解析</span></span><br><span class="line">      <span class="keyword">for</span> (HandlerMethodArgumentResolver resolver : <span class="keyword">this</span>.argumentResolvers) &#123;</span><br><span class="line">         <span class="keyword">if</span> (resolver.supportsParameter(parameter)) &#123;</span><br><span class="line">            result = resolver;</span><br><span class="line">            <span class="keyword">this</span>.argumentResolverCache.put(parameter, result);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>再往里debug是通过得到controller的注解来判断是否和解析器匹配，比<code>@PathVariable</code></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/asset/weChatPay.JPG">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -192,40 +347,152 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
         		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
+      		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/编程//" class="article-tag-list-link color3">编程</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">编程</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://www.littlepeachie.com/2021/04/09/Spring-Boot-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2021/02/01/Zookeeper-Basic/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Zookeeper Basic</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-Boot的源码剖析和一些核心概念整理"><span class="toc-number">1.</span> <span class="toc-text">Spring Boot的源码剖析和一些核心概念整理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一些注解："><span class="toc-number">1.1.</span> <span class="toc-text">一些注解：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自动装配原理："><span class="toc-number">1.2.</span> <span class="toc-text">自动装配原理：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#第一层："><span class="toc-number">1.2.1.</span> <span class="toc-text">第一层：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二层："><span class="toc-number">1.2.2.</span> <span class="toc-text">第二层：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第三层："><span class="toc-number">1.2.3.</span> <span class="toc-text">第三层：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第四层："><span class="toc-number">1.2.4.</span> <span class="toc-text">第四层：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第五层："><span class="toc-number">1.2.5.</span> <span class="toc-text">第五层：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第六层："><span class="toc-number">1.2.6.</span> <span class="toc-text">第六层：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第七层："><span class="toc-number">1.2.7.</span> <span class="toc-text">第七层：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结："><span class="toc-number">1.2.8.</span> <span class="toc-text">总结：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DispatcherServlet"><span class="toc-number">1.3.</span> <span class="toc-text">DispatcherServlet</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#自动装配："><span class="toc-number">1.3.1.</span> <span class="toc-text">自动装配：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SpringBoot支持传入哪些参数"><span class="toc-number">1.4.</span> <span class="toc-text">SpringBoot支持传入哪些参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SpringBoot如何解析传入的参数"><span class="toc-number">1.5.</span> <span class="toc-text">SpringBoot如何解析传入的参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-寻找合适的适配器（HandlerAdapter）"><span class="toc-number">1.5.1.</span> <span class="toc-text">1. 寻找合适的适配器（HandlerAdapter）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-得到调用方法的所有参数"><span class="toc-number">1.5.2.</span> <span class="toc-text">2. 得到调用方法的所有参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-判断参数类型是否支持，如果支持则赋值"><span class="toc-number">1.5.3.</span> <span class="toc-text">3. 判断参数类型是否支持，如果支持则赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-判断是否可以解析参数"><span class="toc-number">1.5.4.</span> <span class="toc-text">4. 判断是否可以解析参数</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2020/06/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2020/06/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
+  
+
   
 
 
+    <section id="comments" style="margin:10px;padding:10px;background:#fff;">
+      <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "tNjW8tkF4sSuzwscLnUNYFjg-gzGzoHsz",
+            app_key: "o1Dj3T3mXICwV2SJg8QG1a6G",
+            placeholder: "(ﾟДﾟ≡ﾟдﾟ)!?",
+            avatar:"retro"
+        });
+    }
+</script>
+
+    </section>
+  
+  
           </div>
         </div>
       </div>
@@ -233,7 +500,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 呱呱太
+    		&copy; 2021 jwang261
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -246,8 +513,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
@@ -286,11 +553,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">Articles</a></li>
       
         
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">About Me</a></li>
       
         
     </ul>
@@ -319,10 +586,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Big Data</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
@@ -339,15 +602,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Big Data</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Security</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -364,10 +639,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
             
             <div class="clearfix"></div>
@@ -492,5 +763,5 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":160,"height":340},"mobile":{"show":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":160,"height":340},"mobile":{"show":false},"log":false});</script></body>
 </html>
